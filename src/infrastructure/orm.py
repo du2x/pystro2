@@ -3,7 +3,7 @@ from sqlalchemy.orm import mapper, relationship
 from sqlalchemy.sql.schema import Column, Table
 from sqlalchemy.sql.sqltypes import Boolean, Float, Integer, SmallInteger, String
 
-from src.domain.model import Order, OrderItem, User, Address
+from src.domain.model import Order, OrderItem, Product, Restaurant, User, Address
 
 
 metadata = MetaData()
@@ -55,3 +55,12 @@ order_item = Table(
     Column('qty', Integer),    
     Column('obs', String(255)),    
 )
+
+
+def start_mappers():
+    order_mapper = mapper(Order, order)
+    order_item_mapper = mapper(OrderItem, order_item)
+    user_mapper = mapper(User, user)
+    product_mapper = mapper(Product, product)
+    restaurant_mapper = mapper(Restaurant, restaurant)
+    address_mapper = mapper(Address, address)
